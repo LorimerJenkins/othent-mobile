@@ -1,0 +1,27 @@
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    width: 500px;
+    padding: 10px;
+
+    font-family: system-ui;
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    display; flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-button {
+    background-color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Dark Mode styles go here. */
+}

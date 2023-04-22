@@ -1,2 +1,2 @@
 # othent-mobile
-Allow the access of Arweave dApps on safari using Othent.io
+Allow the access of Arweave dApps on IOS, using Othent.io

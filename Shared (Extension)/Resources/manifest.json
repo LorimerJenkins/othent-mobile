@@ -19,8 +19,8 @@
     },
 
     "content_scripts": [{
-        "js": [ "content.js" ],
-        "matches": [ "*://example.com/*" ]
+        "js": [ "content.js", "popup.js" ],
+        "matches": [ "*://*/" ]
     }],
 
     "action": {

@@ -3,10 +3,12 @@
 }
 
 body {
-    width: 500px;
-    padding: 10px;
+    width:300px;
     font-family: system-ui;
     text-align: center;
+    background-color: white;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
 }
 
 .header {
@@ -14,77 +16,145 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
+
+
+
+
 
 .header-left {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    gap: 10px;
-    background-color: blue;
+    width: 50%;
+    margin-left: 10px;
 }
-
-.logo {
-    height: 25px;
-}
-
-h1 {
+.header-left-a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
     margin: 0;
-    font-size: 20px;
 }
+.logo {
+    height: 10px;
+    margin: 0;
+}
+h1 {
+    color: #2375EF;
+    margin: 0;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
 
 .header-right {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    gap: 10px;
-    margin-left: auto; /* add this line */
-    background-color: blue;
+    width: 50%;
+    gap: 5px;
+    margin-right: 10px;
 }
-
+/*logged out*/
 .login-button {
-    background-color: red;
-}
-.logout-button {
-    background-color: red;
-}
-
-h2 {
+    border: none;
+    cursor: pointer;
+    height: 15px;
+    background-color: #2375EF;
+    border-radius: 5px;
+    border: 0;
+    margin: 0;
     font-size: 10px;
 }
-
-.copy-contract {
-    height: 10px;
-    background-image: url('images/copy-contract.svg');
-    background-size: cover;
+/*logged in*/
+h2 {
+    color: black;
+    font-size: 15px;
+    margin: 0;
 }
+.drop-down-button {
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    margin: 0;
+}
+.drop-down-img {
+    height: 10px;
+}
+.profile-icon {
+    height: 15px;
+    width: 15px;
+    margin: 0;
+    border-radius: 50%;
+}
+
+
+
+
 
 
 
 .body {
-    background-color: yellow;
     width: 100%;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+    border-top: 1px solid #D3D3D3;
+    border-bottom: 1px solid #D3D3D3;
 }
 .connect-button {
-    background-color: red;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #2375EF;
+    border-radius: 5px;
+    border: 1px solid #2375EF;
 }
 .send-transaction-button {
-    background-color: red;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #2375EF;
+    border-radius: 5px;
+    border: 1px solid #2375EF;
 }
-
 
 
 
 .footer {
-    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+.footer-a {
+    text-decoration: none;
 }
 .footer-text {
     margin: 0;
+    color: black;
+    text-decoration: none;
+    color: #D3D3D3;
+    font-size: 10px;
 }
 
 

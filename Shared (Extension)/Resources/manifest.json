@@ -15,7 +15,8 @@
     },
 
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background.js",
+        "persistent": false
     },
 
     "content_scripts": [{
@@ -35,5 +36,7 @@
         }
     },
 
-    "permissions": [ "activeTab" ]
+    "permissions": [ "activeTab", "<all_urls>" ],
+    "optional_permissions": [ "*://www.shiny.com/" ]
 }
+

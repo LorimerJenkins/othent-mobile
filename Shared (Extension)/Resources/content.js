@@ -1,5 +1,11 @@
 
 
+// await window.arweaveWallet,
+// injection
+// aftr.market
+
+
+
 
 // detect reqs
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -8,6 +14,11 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     
     if (request.command === "logInButton") {
         console.log("logInButton")
+    }
+    
+    
+    if (request.command === "sendTransactionButton") {
+        console.log("sendTransactionButton")
     }
     
     

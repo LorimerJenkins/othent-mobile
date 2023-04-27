@@ -14,6 +14,18 @@ document.getElementById("logInButton").addEventListener("click", function() {
 });
 
 
+
+// send transaction button
+document.getElementById("sendTransactionButton").addEventListener("click", function() {
+    getActiveTab().then((tabs) => {
+        browser.tabs.sendMessage(tabs[0].id, {
+            command: "sendTransactionButton",
+        });
+    });
+});
+
+
+
 // connected to, text
 getActiveTab().then(async (tabs) => { // add async keyword here
 

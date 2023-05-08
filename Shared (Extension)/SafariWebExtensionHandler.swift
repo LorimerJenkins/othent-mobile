@@ -8,7 +8,7 @@
 import SafariServices
 import os.log
 
-let SFExtensionMessageKey = "message"
+let SFExtensionMessageKey = "othent-message"
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 

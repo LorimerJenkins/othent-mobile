@@ -1,65 +1,71 @@
 // We include the othent module by adding it to the manifest.json
 import { Othent } from "othent";
 
-const getOthent = () => Othent({ API_KEY: "API_KEY", API_ID: "API_ID" });
+let othent = null;
 
-// mock data
-const mockUser = {
-  contract_id: "abcdefghij",
-  given_name: "Lorimer",
-  family_name: "Jenkins",
-  nickname: "Lorimer",
-  name: "Lorimer Jenkins",
-  // picture: "https://www.w3schools.com/html/img_girl.jpg",
-  picture:
-    "https://lh3.googleusercontent.com/a/AGNmyxav6wx_N-uO9gj2N2QNad-Kzi1wPZ3oCepvF1wu9w=s96-c",
-  locale: "EN_us",
-  email: "hello@othent.io",
-  email_verified: "hello@othent.io",
-  sub: "123",
-};
+const getOthent = () => Othent({ API_KEY: "API_KEY", API_ID: "API_ID" });
 
 // mock login / logout
 const handleRes = (res) => console.log(`CT: Received response: ${res}`);
 const handleErr = (err) => console.log(`CT: Error thrown: ${err}`);
-const sendLoginOkMessage = () =>
+const msgRuntime = (req, resCallback) =>
   browser.runtime
-    .sendMessage({
-      message: "bg-action",
-      action: "login ok",
-      userDetails: mockUser,
-    })
-    .then(handleRes, handleErr);
-const sendLogoutOkMessage = () =>
-  browser.runtime
-    .sendMessage({
-      message: "bg-action",
-      action: "logout ok",
-    })
-    .then(handleRes, handleErr);
+    .sendMessage(req)
+    .then(resCallback ? resCallback : handleRes, handleErr);
 
-const login = () => {
-  getOthent().then((othent) => {
-    console.log(`Othent object: ${JSON.stringify(othent)}`);
-    console.log("Calling Othent.logIn()");
-    const othentLogin = othent.logIn();
-    console.log(othentLogin);
-    othentLogin.then((res) => {
-      console.log(`othent.logIn returned: ${JSON.stringify(res)}`);
-      browser.runtime
-        .sendMessage({
-          message: "bg-action",
-          action: "login ok",
-          userDetails: res,
-        })
-        .then(handleRes, handleErr);
+// const sendLogoutOkMessage = () =>
+//   browser.runtime
+//     .sendMessage({
+//       message: "bg-action",
+//       action: "logout ok",
+//     })
+//     .then(handleRes, handleErr);
+
+const callLogin = () =>
+  othent.logIn().then(
+    (res) =>
+      msgRuntime({
+        message: "bg-action",
+        action: "login ok",
+        userDetails: res,
+      }),
+    handleErr
+  );
+
+const callLogout = () =>
+  othent.logOut().then(
+    (res) =>
+      msgRuntime({
+        message: "bg-action",
+        action: "logout ok",
+        logOutResponse: res,
+      }),
+    handleErr
+  );
+
+const isOthent = (callbackFn) => {
+  if (othent) callbackFn();
+  else
+    getOthent().then((othInstance) => {
+      othent = othInstance;
+      callbackFn();
     }, handleErr);
-  }, handleErr);
-  // setTimeout(sendLoginOkMessage, 4000);
 };
-const logout = () => {
-  setTimeout(sendLogoutOkMessage, 4000);
-};
+
+const login = () => isOthent(callLogin);
+const logout = () => isOthent(callLogout);
+// {
+//   if (othent) callLogin();
+//   else
+//     getOthent().then((othentInstance) => {
+//       othent = othentInstance;
+//       callLogin();
+//     }, handleErr);
+// };
+
+// const logout = () => {
+//   setTimeout(sendLogoutOkMessage, 4000);
+// };
 
 // Listen to messages from Background
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {

@@ -86,7 +86,7 @@ const msgContent = (req, handleRes) => {
 
 const login = () => {
   msgBackground({ message: "bg-action", action: "login" });
-  // window.close();
+  window.close();
 };
 const logout = () => msgBackground({ message: "bg-action", action: "logout" });
 const getLocation = () =>
@@ -123,21 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
   txnButton.addEventListener("click", () =>
     msgContent({ message: "ct-action", action: "send tx" }, logRes)
   );
-  // set title from content response
-  // getActiveTab().then(async (tabs) => {
-  //   browser.tabs
-  //     .sendMessage(tabs[0].id, {
-  //       message: "ct-action",
-  //       action: "site url",
-  //     })
-  //     .then(() => (titleElem.innerHTML = response?.title), logErr);
-  // });
   console.log("PU dom loaded: Calling background for status");
   msgBackground({ message: "bg-action", action: "status" }, bgStatus);
-  // msgBackground(
-  //   { message: "bg-action", action: "site url" },
-  //   () => (titleElem.innerHTML = response?.message)
-  // );
   msgContent(
     { message: "ct-action", action: "site url" },
     (res) => (titleElem.innerHTML = res?.message)

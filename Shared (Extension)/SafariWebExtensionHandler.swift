@@ -2,13 +2,13 @@
 //  SafariWebExtensionHandler.swift
 //  Shared (Extension)
 //
-//  Created by Lorimer Jenkins on 22/04/2023.
+//  Created by 7i7o on 04/07/2023.
 //
 
 import SafariServices
 import os.log
 
-let SFExtensionMessageKey = "othent-message"
+let SFExtensionMessageKey = "message"
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 

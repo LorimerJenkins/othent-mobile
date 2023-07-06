@@ -6,8 +6,7 @@
 
 :root {
     color-scheme: light dark;
-
-    --spacing: 5px;
+    --spacing: 20px;
 }
 
 html {
@@ -56,21 +55,13 @@ body.state-off :is(.state-on, .state-unknown) {
     display: none;
 }
 
-h1 {
-    margin-bottom: 2.5px;
-}
-
-h2 {
-    margin: 0;
-    font-size: 10px;
-}
-
 button {
-    background-color: #2375EF;
-    padding: 5px;
     font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
+}
+
+.link-button {
+    padding:0;
+    border:0;
+    background: none;
+    color: #2375ef;
 }

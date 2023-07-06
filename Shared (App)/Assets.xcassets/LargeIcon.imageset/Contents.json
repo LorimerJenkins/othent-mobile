@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Group 18 (1)-1024.png",
+      "filename" : "icon128.plasmo.75675c84.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 18 (1)-1024 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 18 (1)-1024 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

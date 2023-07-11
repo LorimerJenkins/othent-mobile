@@ -10,14 +10,7 @@ import SwiftUI
 
 let whiteArrow: String = "arrow-narrow-right"
 let blueArrow: String = "arrow-narrow-right-blue"
-enum Images: String, CaseIterable {
-    case a = "tour1";
-    case b = "tour2";
-    case c = "tour3";
-    case d = "tour4";
-    case e = "tour5";
-    case f = "tour6";
-}
+
 let backgroundImages: [String] = [
     "bgCircles",
     "bgDots",
@@ -43,6 +36,8 @@ let subtitles: [String] = [
 ]
 
 struct GuidedTourView: View {
+    let dismissAction: () -> Void
+    
     @State private var currentPage = 0
     
     func setCurrentPage(page: Int) {
@@ -50,42 +45,50 @@ struct GuidedTourView: View {
     }
     
     var body: some View {
-        VStack {
-            HeaderView(logo: "logo", skipButtonAction: {})
-                .padding(.top, 20)
-                .padding(.horizontal, 15)
-            TitleView(title: titles[currentPage], subtitle: subtitles[currentPage])
-            ImageView(currentPage: currentPage)
-            DotsView(currentPage: currentPage, action: setCurrentPage)
-            ContinueButton(currentPage: currentPage, action: {
-                if self.currentPage < Images.allCases.count - 1 {
-                    self.currentPage += 1
-                } else {
-                    // Go to Safari
-                }
-            })
-            .background(Color.accentColor)
-            .foregroundColor(Color.white)
-            .cornerRadius(10)
-            .padding(.bottom, 20)
-            .padding(.horizontal, 20)
-        }
-        .font(Font.custom("DMSans-regular", size: 18))
-        .background(
+        @Environment(\.openURL) var openURL
+        
+        GeometryReader { metrics in
             VStack {
-                Spacer()
-                Image(backgroundImages[currentPage])
-                    .resizable(resizingMode: .stretch)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: .infinity)
+                HeaderView(logo: "logo", dismissAction: dismissAction)
+                    .padding(.top, 20)
+                    .padding(.horizontal, 15)
+                TitleView(title: titles[currentPage], subtitle: subtitles[currentPage])
+                ImageView(currentPage: currentPage)
+                DotsView(currentPage: currentPage, action: setCurrentPage)
+                ContinueButton(currentPage: currentPage, action: {
+                    if self.currentPage < titles.count - 1 {
+                        self.currentPage += 1
+                    } else {
+                        dismissAction()
+                        openURL(URL(string: "https://oth-upload.vercel.app")!)
+                    }
+                })
+                .background(Color.accentColor)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
+                .padding(.bottom, 20)
+                .padding(.horizontal, 20)
             }
-        ).clipped()
-    }
+            .font(Font.custom("DMSans-regular", size: 18))
+            .background(
+                VStack {
+                    Spacer()
+                    Image(backgroundImages[currentPage])
+                        .resizable(resizingMode: .stretch)
+                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: .infinity)
+                }
+            )
+            .swipeActions(edge: .leading ,content: {
+                self
+            })
+            .frame(maxHeight: metrics.size.height)
+        }}
 }
 
 struct HeaderView: View {
     let logo: String
-    let skipButtonAction: () -> Void
+    let dismissAction: () -> Void
     
     var body: some View {
         ZStack{
@@ -97,7 +100,7 @@ struct HeaderView: View {
             }
             HStack {
                 Spacer()
-                SkipButton(action: skipButtonAction)
+                SkipButton(action: dismissAction)
             }
         }
     }
@@ -135,19 +138,6 @@ struct TitleView: View {
     }
 }
 
-struct ImageView: View {
-    let currentPage: Int
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            Image(Images.allCases[currentPage].rawValue)
-                .resizable()
-                .scaledToFit()
-                .padding(.horizontal, 20)
-            Spacer()
-        }}
-}
 
 struct DotsView: View {
     let currentPage: Int
@@ -155,7 +145,7 @@ struct DotsView: View {
     
     var body: some View {
         HStack {
-            let count = Images.allCases.count
+            let count = titles.count
             ForEach(0..<count,  id: \.self) { index in
                 Button(action: {action(index)}) {
                     Circle()
@@ -163,7 +153,7 @@ struct DotsView: View {
                         .frame(width: 8, height: 8)
                 }.padding(.horizontal, 4)
             }
-        }.padding(.bottom,16)
+        }.padding(.bottom,5)
     }
 }
 
@@ -175,7 +165,7 @@ struct ContinueButton: View {
         Button(action: action) {
             HStack {
                 Spacer()
-                if currentPage < Images.allCases.count - 1 {
+                if currentPage < titles.count - 1 {
                     Text("Continue")
                     Image(whiteArrow)
                 } else {
@@ -191,8 +181,85 @@ struct ContinueButton: View {
     }
 }
 
+struct ImageView: View {
+    let currentPage: Int
+    let pageOneTexts: [String] = ["Simple setup","Secure Infrastructure","Decentralized architechture"]
+    
+    var body: some View {
+        VStack {
+            if currentPage == 0 {
+                HStack{
+                    Spacer()
+                    LazyVGrid(columns: [GridItem(.flexible(minimum:32,maximum:40), alignment: .trailing), GridItem(alignment: .leading)], spacing: 20) {
+                        ForEach(1..<4) { row in
+                            Image("tour1"+row.formatted())
+                                .padding(.trailing, 40)
+                            Text(pageOneTexts[row-1])
+                                .font(.custom("DMSans-Regular", size: 24))
+                        }
+                    }
+                    .frame(maxWidth: 250)
+                    .padding(.leading, 50)
+                    Spacer()
+                }.padding(.top, 40)
+            } else if currentPage == 1 {
+                VStack{
+                    ZStack {
+                        Image("safari")
+                    }
+                    .padding(5)
+                    .background(.white)
+                    .cornerRadius(10)
+                    .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
+                    HStack{
+                        Spacer()
+                        LazyVGrid(columns: [GridItem(.flexible(minimum:20,maximum:45), alignment: .trailing), GridItem(alignment: .leading)], spacing: 0) {
+                            ForEach(1..<4) { row in
+                                Text(row.formatted()+".")
+                                Image("tour2"+row.formatted())
+                                    .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
+                            }
+                        }
+                        Spacer()
+                    }
+                }
+            } else if currentPage == 2 {
+                VStack{
+                    ForEach(1..<4) { row in
+                        Image("tour3"+row.formatted())
+                            .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
+                    }
+                }
+            } else if currentPage == 3 {
+                VStack{
+                    HStack{
+                        ForEach(1..<4) { row in
+                                Image("tour4"+row.formatted())
+                            .padding(10)
+                            .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
+                        }
+                    }
+                    Image("tour4")
+//                            }
+                .padding(10)
+//                            .background(.white)
+//                            .cornerRadius(10)
+                .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
+                }
+            } else {
+                Image("tour"+(currentPage+1).formatted())
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.horizontal, 20)
+            }
+            Spacer()
+        }
+    }
+}
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GuidedTourView()
+        GuidedTourView(dismissAction: {})
     }
 }

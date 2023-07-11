@@ -67,7 +67,7 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     }()
     
     @objc func startWalkthrough() {
-        let guidedTourVC = GuidedTourViewController()
+        let guidedTourVC = GuidedTourVC()
         guidedTourVC.modalPresentationStyle = .fullScreen // Set the presentation style to full screen
         self.present(guidedTourVC, animated: true, completion: nil)
     }
@@ -123,9 +123,6 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     }
 
     func openSafariSettings() {
-//        let urlString = "App-Prefs:root=Safari" // REMOVE THIS !!!
-//        let url = URL(string: urlString)!
-//        UIApplication.shared.open(url)
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
             return
         }

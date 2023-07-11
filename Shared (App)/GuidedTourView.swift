@@ -44,6 +44,14 @@ struct GuidedTourView: View {
         self.currentPage = page
     }
     
+    func nextView() {
+        self.currentPage = min(self.currentPage + 1, titles.count - 1)
+    }
+
+    func prevView() {
+        self.currentPage = max(self.currentPage - 1, 0)
+    }
+
     var body: some View {
         @Environment(\.openURL) var openURL
         
@@ -56,11 +64,11 @@ struct GuidedTourView: View {
                 ImageView(currentPage: currentPage)
                 DotsView(currentPage: currentPage, action: setCurrentPage)
                 ContinueButton(currentPage: currentPage, action: {
-                    if self.currentPage < titles.count - 1 {
-                        self.currentPage += 1
-                    } else {
+                    if self.currentPage == titles.count - 1 {
                         dismissAction()
                         openURL(URL(string: "https://oth-upload.vercel.app")!)
+                    } else {
+                        nextView()
                     }
                 })
                 .background(Color.accentColor)
@@ -76,14 +84,28 @@ struct GuidedTourView: View {
                     Image(backgroundImages[currentPage])
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fit)
-                    //                        .frame(width: .infinity)
                 }
             )
-            .swipeActions(edge: .leading ,content: {
-                self
-            })
             .frame(height: metrics.size.height)
-        }}
+            .gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
+            .onEnded { value in
+                let horizontalAmount = value.translation.width
+                let verticalAmount = value.translation.height
+                
+                if abs(horizontalAmount) > abs(verticalAmount) {
+                    if horizontalAmount < 0 {
+                        nextView()
+                    } else {
+                        prevView()
+                    }
+                } else {
+                    if !(verticalAmount < 0) {
+                        dismissAction()
+                    }
+                }
+            })
+        }
+    }
 }
 
 struct HeaderView: View {

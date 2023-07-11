@@ -5,15 +5,14 @@
 //  Created by 7i7o on 05/07/2023.
 //
 
-import UIKit
 import SwiftUI
 
 class GuidedTourVC: UIViewController {
     
-    @objc func dismissTour() {
+    func dismissTour() {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -21,14 +20,14 @@ class GuidedTourVC: UIViewController {
     
     func setupViews() {
         
-        let vc = UIHostingController(rootView: GuidedTourView(dismissAction: dismissTour))
-        
+        let gtView = GuidedTourView(dismissAction: dismissTour)
+        let vc = UIHostingController(rootView: gtView)
         let swiftuiView = vc.view!
         swiftuiView.translatesAutoresizingMaskIntoConstraints = false
         
         addChild(vc)
         view.addSubview(swiftuiView)
-        
+
         NSLayoutConstraint.activate([
             swiftuiView.topAnchor.constraint(equalTo: view.topAnchor),
             swiftuiView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

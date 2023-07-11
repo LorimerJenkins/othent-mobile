@@ -113,6 +113,7 @@ struct SkipButton: View {
         Button(action: action) {
             HStack {
                 Text("Skip")
+                    .font(.custom("DMSans-Medium", size: 18))
                 Image(blueArrow)
             }
         }
@@ -131,7 +132,7 @@ struct TitleView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 12)
             Text(subtitle)
-                .font(Font.custom("DMSans-Regular", size: 18))
+                .font(.custom("DMSans-Regular", size: 18))
         }
         .font(.title)
         .padding()
@@ -172,9 +173,8 @@ struct ContinueButton: View {
                     Text("Open Safari")
                 }
                 Spacer()
-            }
+            }.font(Font.custom("DMSans-Medium", size: 18))
         }
-        //        .frame(maxWidth: .infinity)
         .padding(.horizontal, 25)
         .padding(.vertical, 10)
         .cornerRadius(20)
@@ -202,38 +202,7 @@ struct ImageView: View {
                     .padding(.leading, 50)
                     Spacer()
                 }.padding(.top, 40)
-            } else if currentPage == 1 {
-                VStack{
-                    ZStack {
-                        Image("safari")
-                    }
-                    .padding(5)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
-                    HStack{
-                        Spacer()
-                        LazyVGrid(columns: [GridItem(.flexible(minimum:20,maximum:45), alignment: .trailing), GridItem(alignment: .leading)], spacing: 0) {
-                            ForEach(1..<4) { row in
-                                Text(row.formatted()+".")
-                                Image("tour2"+row.formatted())
-                                    .scaledToFit()
-                                    .aspectRatio(contentMode: .fit)
-                                    .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
-                            }
-                        }
-                        Spacer()
-                    }
-                }
-            } else if currentPage == 2 {
-                VStack{
-                    ForEach(1..<4) { row in
-                        Image("tour3"+row.formatted())
-                            .scaledToFit()
-                            .aspectRatio(contentMode: .fit)
-                            .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
-                    }
-                }
+
             } else if currentPage == 3 {
                 VStack{
                     HStack{
@@ -246,11 +215,7 @@ struct ImageView: View {
                     Image("tour4")
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fit)
-                    
-                    //                            }
-                        .padding(10)
-                    //                            .background(.white)
-                    //                            .cornerRadius(10)
+                                            .padding(10)
                         .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
                 }
             } else {
@@ -259,6 +224,7 @@ struct ImageView: View {
                     .scaledToFit()
                     .padding(.horizontal, 20)
                     .aspectRatio(contentMode: .fit)
+                    .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
             }
             Spacer()
         }

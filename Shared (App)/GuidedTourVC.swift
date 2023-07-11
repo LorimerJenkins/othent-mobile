@@ -30,8 +30,8 @@ class GuidedTourVC: UIViewController {
         view.addSubview(swiftuiView)
         
         NSLayoutConstraint.activate([
-            swiftuiView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            swiftuiView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            swiftuiView.topAnchor.constraint(equalTo: view.topAnchor),
+            swiftuiView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             swiftuiView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             swiftuiView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])

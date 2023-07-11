@@ -65,6 +65,8 @@
 		6AA8AD082A5D891800FA4569 /* tour2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD062A5D891800FA4569 /* tour2.svg */; };
 		6AA8AD102A5D901A00FA4569 /* tour3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD0F2A5D901A00FA4569 /* tour3.svg */; };
 		6AA8AD112A5D901A00FA4569 /* tour3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD0F2A5D901A00FA4569 /* tour3.svg */; };
+		6AA8AD772A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */; };
+		6AA8AD782A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */; };
 		6AE5A45C2A55A3B600ED911D /* GuidedTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5A45B2A55A3B600ED911D /* GuidedTourViewController.swift */; };
 		6AE5A45D2A55A3B600ED911D /* GuidedTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5A45B2A55A3B600ED911D /* GuidedTourViewController.swift */; };
 		6AE5A4CD2A57310F00ED911D /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A4CA2A57310F00ED911D /* DMSans-Medium.ttf */; };
@@ -223,6 +225,7 @@
 		6AA8ACFE2A5CA59E00FA4569 /* tour5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tour5.png; sourceTree = "<group>"; };
 		6AA8AD062A5D891800FA4569 /* tour2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tour2.svg; sourceTree = "<group>"; };
 		6AA8AD0F2A5D901A00FA4569 /* tour3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tour3.svg; sourceTree = "<group>"; };
+		6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uploadCloud.a893dc1a.svg; sourceTree = "<group>"; };
 		6AE5A45B2A55A3B600ED911D /* GuidedTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedTourViewController.swift; sourceTree = "<group>"; };
 		6AE5A4CA2A57310F00ED911D /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		6AE5A4CB2A57310F00ED911D /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -459,6 +462,7 @@
 				6AE5A5FA2A57675800ED911D /* popup.html */,
 				6AE5A5FC2A57675800ED911D /* refresh.fb631ecc.svg */,
 				6AE5A5FD2A57675800ED911D /* upload.f3b81ad8.svg */,
+				6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */,
 				6AE5A6072A57675800ED911D /* warp.b792c4fc.svg */,
 			);
 			path = Resources;
@@ -677,6 +681,7 @@
 				6AE5A6492A57675800ED911D /* arweave.9ad204c3.svg in Resources */,
 				6AE5A63D2A57675800ED911D /* externalLink.d56e7a0f.svg in Resources */,
 				6AE5A6532A57675800ED911D /* keys.fbddd79e.svg in Resources */,
+				6AA8AD772A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */,
 				6AE5A62F2A57675800ED911D /* alert.b97c7696.svg in Resources */,
 				6AE5A6312A57675800ED911D /* popup.596544fc.css in Resources */,
 				6AE5A6452A57675800ED911D /* inject-handler.1edc5496.js in Resources */,
@@ -716,6 +721,7 @@
 				6AE5A64A2A57675800ED911D /* arweave.9ad204c3.svg in Resources */,
 				6AE5A63E2A57675800ED911D /* externalLink.d56e7a0f.svg in Resources */,
 				6AE5A6542A57675800ED911D /* keys.fbddd79e.svg in Resources */,
+				6AA8AD782A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */,
 				6AE5A6302A57675800ED911D /* alert.b97c7696.svg in Resources */,
 				6AE5A6322A57675800ED911D /* popup.596544fc.css in Resources */,
 				6AE5A6462A57675800ED911D /* inject-handler.1edc5496.js in Resources */,

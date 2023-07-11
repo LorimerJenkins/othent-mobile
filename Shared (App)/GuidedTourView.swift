@@ -76,13 +76,13 @@ struct GuidedTourView: View {
                     Image(backgroundImages[currentPage])
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fit)
-//                        .frame(width: .infinity)
+                    //                        .frame(width: .infinity)
                 }
             )
             .swipeActions(edge: .leading ,content: {
                 self
             })
-            .frame(maxHeight: metrics.size.height)
+            .frame(height: metrics.size.height)
         }}
 }
 
@@ -217,6 +217,8 @@ struct ImageView: View {
                             ForEach(1..<4) { row in
                                 Text(row.formatted()+".")
                                 Image("tour2"+row.formatted())
+                                    .scaledToFit()
+                                    .aspectRatio(contentMode: .fit)
                                     .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
                             }
                         }
@@ -227,6 +229,8 @@ struct ImageView: View {
                 VStack{
                     ForEach(1..<4) { row in
                         Image("tour3"+row.formatted())
+                            .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
                             .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
                     }
                 }
@@ -234,23 +238,27 @@ struct ImageView: View {
                 VStack{
                     HStack{
                         ForEach(1..<4) { row in
-                                Image("tour4"+row.formatted())
-                            .padding(10)
-                            .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
+                            Image("tour4"+row.formatted())
+                                .padding(.horizontal, 10)
+                                .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
                         }
                     }
                     Image("tour4")
-//                            }
-                .padding(10)
-//                            .background(.white)
-//                            .cornerRadius(10)
-                .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
+                        .resizable(resizingMode: .stretch)
+                        .aspectRatio(contentMode: .fit)
+                    
+                    //                            }
+                        .padding(10)
+                    //                            .background(.white)
+                    //                            .cornerRadius(10)
+                        .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
                 }
             } else {
                 Image("tour"+(currentPage+1).formatted())
-                    .resizable()
+                    .resizable(resizingMode: .stretch)
                     .scaledToFit()
                     .padding(.horizontal, 20)
+                    .aspectRatio(contentMode: .fit)
             }
             Spacer()
         }

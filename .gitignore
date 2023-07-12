@@ -93,3 +93,6 @@ iOSInjectionProject/
 node_modules/
 pnpm-lock.yaml
 yarn.lock
+
+# apple
+.DS_Store

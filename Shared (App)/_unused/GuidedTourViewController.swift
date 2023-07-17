@@ -83,7 +83,7 @@ class GuidedTourViewController: UIViewController {
         button.setAttributedTitle(attributedTitle, for: .normal)
 //        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.titleLabel?.font = titleFont.withSize(16)
-        button.tintColor = UIColor(hex: "#2375ef")
+        button.tintColor = UIColor(.primary)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
@@ -103,7 +103,7 @@ class GuidedTourViewController: UIViewController {
         attributedTitle.append(NSAttributedString(attachment: arrowAttachment))
         button.setAttributedTitle(attributedTitle, for: .normal)
         // Style Button
-        button.backgroundColor = UIColor(hex: "#2375ef")
+        button.backgroundColor = UIColor(.primary)
         button.setTitleColor(.white, for: .normal)
 //        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.titleLabel?.font = titleFont.withSize(16)
@@ -140,7 +140,7 @@ class GuidedTourViewController: UIViewController {
     lazy var titleView: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(hex: "#2375ef")
+        label.textColor = UIColor(.primary)
         label.font = titleFont.withSize(28)
         label.textAlignment = NSTextAlignment.center
         label.preferredMaxLayoutWidth = 320

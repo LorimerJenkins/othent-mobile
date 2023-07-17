@@ -29,5 +29,21 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>First Launch Flag</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
+			<key>UTTypeIdentifier</key>
+			<string>firstLaunch</string>
+			<key>UTTypeTagSpecification</key>
+			<dict/>
+			<key>firstLaunch</key>
+			<true/>
+		</dict>
+		<dict/>
+	</array>
 </dict>
 </plist>

@@ -18,13 +18,15 @@ let backgroundImages: [String] = [
     "bgCircles",
     "bgDots",
     "bgCircles",
+    "bgCircles",
 ]
 let titles: [String] = [
     "Experience Arweave on mobile with Othent",
     "Get Started",
     "Get Started","Jump In",
     "Get Started",
-    "Manage with ease"
+    "Manage with ease",
+    "Upload files"
 ]
 let subtitles: [String] = [
     "Sign in to the Permaweb on the go, all through an extension",
@@ -32,11 +34,13 @@ let subtitles: [String] = [
     "Review permissions",
     "Interact with your favorite Arweave dApps",
     "Sign up to Othent",
-    "View recent transactions and an overview of your account, through the easy-to-use app",
+    "View recent transactions and an overview of your account, through the easy-to-use extension",
+    "Easily upload files in 2 steps from the extension and keep them forever in the Permaweb.",
 ]
 
 struct GuidedTourView: View {
     let dismissAction: () -> Void
+    let homeURL: String
     
     @State private var currentPage = 0
     
@@ -57,25 +61,25 @@ struct GuidedTourView: View {
         
         GeometryReader { metrics in
             VStack {
-                HeaderView(logo: "logo", dismissAction: dismissAction)
+                Header(dismissAction: dismissAction)
                     .padding(.top, 20)
-                    .padding(.horizontal, 15)
-                TitleView(title: titles[currentPage], subtitle: subtitles[currentPage])
+                    .padding(.horizontal, 10)
+                Title(text: titles[currentPage])
+                SubTitle(text: subtitles[currentPage])
                 ImageView(currentPage: currentPage)
-                DotsView(currentPage: currentPage, action: setCurrentPage)
-                ContinueButton(currentPage: currentPage, action: {
-                    if self.currentPage == titles.count - 1 {
+                DotsPagination(total: titles.count, current: currentPage, action: setCurrentPage)
+                if self.currentPage < titles.count - 1 {
+                    ActionButton(action:nextView, content: {
+                        Text("Continue")
+                        Image(systemName: "arrow.right")
+                    })
+                } else {
+                    ActionButton(action:{
+                        UserDefaults().set(true, forKey: "guidedTourCompleted")
                         dismissAction()
-                        openURL(URL(string: "https://oth-upload.vercel.app")!)
-                    } else {
-                        nextView()
-                    }
-                })
-                .background(Color.accentColor)
-                .foregroundColor(Color.white)
-                .cornerRadius(10)
-                .padding(.bottom, 20)
-                .padding(.horizontal, 20)
+                        openURL(URL(string: homeURL)!)
+                    }, content: {Text("Open Safari")})
+                }
             }
             .font(Font.custom("DMSans-regular", size: 18))
             .background(
@@ -108,122 +112,34 @@ struct GuidedTourView: View {
     }
 }
 
-struct HeaderView: View {
-    let logo: String
-    let dismissAction: () -> Void
-    
-    var body: some View {
-        ZStack{
-            HStack {
-                Spacer()
-            }
-            HStack {
-                Image(logo)
-            }
-            HStack {
-                Spacer()
-                SkipButton(action: dismissAction)
-            }
-        }
-    }
-}
-
-struct SkipButton: View {
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            HStack {
-                Text("Skip")
-                    .font(.custom("DMSans-Medium", size: 18))
-                Image(blueArrow)
-            }
-        }
-    }
-}
-
-struct TitleView: View {
-    let title: String
-    let subtitle: String
-    
-    var body: some View {
-        VStack {
-            Text(title)
-                .font(Font.custom("DMSans-Bold", size: 28))
-                .foregroundColor(Color.accentColor)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 12)
-            Text(subtitle)
-                .font(.custom("DMSans-Regular", size: 18))
-        }
-        .font(.title)
-        .padding()
-    }
-}
-
-
-struct DotsView: View {
-    let currentPage: Int
-    let action: (Int) -> Void
-    
-    var body: some View {
-        HStack {
-            let count = titles.count
-            ForEach(0..<count,  id: \.self) { index in
-                Button(action: {action(index)}) {
-                    Circle()
-                        .foregroundColor(index == currentPage ? .accentColor : .secondary)
-                        .frame(width: 8, height: 8)
-                }.padding(.horizontal, 4)
-            }
-        }.padding(.bottom,5)
-    }
-}
-
-struct ContinueButton: View {
-    let currentPage: Int
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            HStack {
-                Spacer()
-                if currentPage < titles.count - 1 {
-                    Text("Continue")
-                    Image(whiteArrow)
-                } else {
-                    Text("Open Safari")
-                }
-                Spacer()
-            }.font(Font.custom("DMSans-Medium", size: 18))
-        }
-        .padding(.horizontal, 25)
-        .padding(.vertical, 10)
-        .cornerRadius(20)
-    }
-}
-
 struct ImageView: View {
     let currentPage: Int
-    let pageOneTexts: [String] = ["Simple setup","Secure Infrastructure","Decentralized architechture"]
+    let pageOneTexts: [[String]] = [["Simple","Setup once, use forever."],["Secure","Personal data encrypted end-to-end."],["Seamless","Log in with a single click."]]
     
     var body: some View {
         VStack {
             if currentPage == 0 {
+                Spacer()
                 HStack{
-                    Spacer()
-                    LazyVGrid(columns: [GridItem(.flexible(minimum:32,maximum:40), alignment: .trailing), GridItem(alignment: .leading)], spacing: 20) {
+                    LazyVGrid(columns: [GridItem(.flexible(minimum:32,maximum:40), alignment: .trailing), GridItem(.flexible(minimum:50,maximum:155), alignment: .leading)], spacing: 20) {
                         ForEach(1..<4) { row in
                             Image("tour1"+row.formatted())
                                 .padding(.trailing, 40)
-                            Text(pageOneTexts[row-1])
-                                .font(.custom("DMSans-Regular", size: 24))
+                            VStack(alignment: .leading) {
+                                Text(pageOneTexts[row-1][0])
+                                    .font(.custom("DMSans-Regular", size: 24))
+                                    .multilineTextAlignment(.leading)
+                                Text(pageOneTexts[row-1][1])
+                                    .font(.custom("DMSans-Regular", size: 14))
+                                    .multilineTextAlignment(.leading)
+                            }
+                            .multilineTextAlignment(.leading)
                         }
                     }
                     .frame(maxWidth: 250)
                     .padding(.leading, 50)
-                    Spacer()
-                }.padding(.top, 40)
+                }
+                Spacer()
 
             } else if currentPage == 3 {
                 VStack{
@@ -256,6 +172,6 @@ struct ImageView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GuidedTourView(dismissAction: {})
+        GuidedTourView(dismissAction: {}, homeURL: "https://oth-upload.vercel.app")
     }
 }

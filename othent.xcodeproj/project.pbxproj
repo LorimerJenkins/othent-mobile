@@ -65,8 +65,6 @@
 		6AA8AD112A5D901A00FA4569 /* tour3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD0F2A5D901A00FA4569 /* tour3.svg */; };
 		6AA8AD772A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */; };
 		6AA8AD782A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */; };
-		6AA8AD7A2A5F17C500FA4569 /* uLogo.72f87402.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD792A5F17C500FA4569 /* uLogo.72f87402.svg */; };
-		6AA8AD7B2A5F17C500FA4569 /* uLogo.72f87402.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8AD792A5F17C500FA4569 /* uLogo.72f87402.svg */; };
 		6AA8ADD42A61919400FA4569 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA8ADD32A61919400FA4569 /* Header.swift */; };
 		6AA8ADD52A61919400FA4569 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA8ADD32A61919400FA4569 /* Header.swift */; };
 		6AA8ADD72A6493A600FA4569 /* IOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA8ADD62A6493A600FA4569 /* IOSView.swift */; };
@@ -93,8 +91,6 @@
 		6AE5A6222A57675800ED911D /* refresh.fb631ecc.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A5FC2A57675800ED911D /* refresh.fb631ecc.svg */; };
 		6AE5A6232A57675800ED911D /* upload.f3b81ad8.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A5FD2A57675800ED911D /* upload.f3b81ad8.svg */; };
 		6AE5A6242A57675800ED911D /* upload.f3b81ad8.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A5FD2A57675800ED911D /* upload.f3b81ad8.svg */; };
-		6AE5A6252A57675800ED911D /* inject.36295189.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A5FE2A57675800ED911D /* inject.36295189.js */; };
-		6AE5A6262A57675800ED911D /* inject.36295189.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A5FE2A57675800ED911D /* inject.36295189.js */; };
 		6AE5A6272A57675800ED911D /* copy.d754243f.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A5FF2A57675800ED911D /* copy.d754243f.svg */; };
 		6AE5A6282A57675800ED911D /* copy.d754243f.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A5FF2A57675800ED911D /* copy.d754243f.svg */; };
 		6AE5A6292A57675800ED911D /* asterisk.bab3946d.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A6002A57675800ED911D /* asterisk.bab3946d.svg */; };
@@ -125,8 +121,6 @@
 		6AE5A6422A57675800ED911D /* externalFile.81fe2508.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A60C2A57675800ED911D /* externalFile.81fe2508.svg */; };
 		6AE5A6432A57675800ED911D /* logout.51170824.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A60D2A57675800ED911D /* logout.51170824.svg */; };
 		6AE5A6442A57675800ED911D /* logout.51170824.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A60D2A57675800ED911D /* logout.51170824.svg */; };
-		6AE5A6452A57675800ED911D /* inject-handler.1edc5496.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A60E2A57675800ED911D /* inject-handler.1edc5496.js */; };
-		6AE5A6462A57675800ED911D /* inject-handler.1edc5496.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A60E2A57675800ED911D /* inject-handler.1edc5496.js */; };
 		6AE5A6472A57675800ED911D /* cross-red.98c34aa0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A60F2A57675800ED911D /* cross-red.98c34aa0.svg */; };
 		6AE5A6482A57675800ED911D /* cross-red.98c34aa0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A60F2A57675800ED911D /* cross-red.98c34aa0.svg */; };
 		6AE5A6492A57675800ED911D /* arweave.9ad204c3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5A6102A57675800ED911D /* arweave.9ad204c3.svg */; };
@@ -151,12 +145,16 @@
 		6AFF53742A64B1AE00A01649 /* DotsPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF53722A64B1AE00A01649 /* DotsPagination.swift */; };
 		6AFF53762A64B3C700A01649 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF53752A64B3C700A01649 /* ActionButton.swift */; };
 		6AFF53772A64B3C700A01649 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF53752A64B3C700A01649 /* ActionButton.swift */; };
-		6AFF53792A657B2A00A01649 /* ardrive.622d9ea3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53782A657B2A00A01649 /* ardrive.622d9ea3.svg */; };
-		6AFF537A2A657B2A00A01649 /* ardrive.622d9ea3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53782A657B2A00A01649 /* ardrive.622d9ea3.svg */; };
 		6AFF537C2A657FD600A01649 /* tour6.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF537B2A657FD600A01649 /* tour6.png */; };
 		6AFF537D2A657FD600A01649 /* tour6.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF537B2A657FD600A01649 /* tour6.png */; };
 		6AFF53822A6583EB00A01649 /* tour7.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53812A6583EB00A01649 /* tour7.png */; };
 		6AFF53832A6583EB00A01649 /* tour7.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53812A6583EB00A01649 /* tour7.png */; };
+		6AFF538A2A6996CF00A01649 /* mainWorld.06b15cf0.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53872A6996CF00A01649 /* mainWorld.06b15cf0.js */; };
+		6AFF538B2A6996CF00A01649 /* mainWorld.06b15cf0.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53872A6996CF00A01649 /* mainWorld.06b15cf0.js */; };
+		6AFF538C2A6996CF00A01649 /* mainWorldHandler.8f410092.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53882A6996CF00A01649 /* mainWorldHandler.8f410092.js */; };
+		6AFF538D2A6996CF00A01649 /* mainWorldHandler.8f410092.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53882A6996CF00A01649 /* mainWorldHandler.8f410092.js */; };
+		6AFF538E2A6996CF00A01649 /* injectedUI.e033f073.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53892A6996CF00A01649 /* injectedUI.e033f073.js */; };
+		6AFF538F2A6996CF00A01649 /* injectedUI.e033f073.js in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF53892A6996CF00A01649 /* injectedUI.e033f073.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,7 +241,6 @@
 		6AA8AD062A5D891800FA4569 /* tour2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tour2.svg; sourceTree = "<group>"; };
 		6AA8AD0F2A5D901A00FA4569 /* tour3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tour3.svg; sourceTree = "<group>"; };
 		6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uploadCloud.a893dc1a.svg; sourceTree = "<group>"; };
-		6AA8AD792A5F17C500FA4569 /* uLogo.72f87402.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uLogo.72f87402.svg; sourceTree = "<group>"; };
 		6AA8ADD32A61919400FA4569 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		6AA8ADD62A6493A600FA4569 /* IOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSView.swift; sourceTree = "<group>"; };
 		6AE5A45B2A55A3B600ED911D /* GuidedTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedTourViewController.swift; sourceTree = "<group>"; };
@@ -257,7 +254,6 @@
 		6AE5A5FB2A57675800ED911D /* cross.3b7782cb.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cross.3b7782cb.svg; sourceTree = "<group>"; };
 		6AE5A5FC2A57675800ED911D /* refresh.fb631ecc.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = refresh.fb631ecc.svg; sourceTree = "<group>"; };
 		6AE5A5FD2A57675800ED911D /* upload.f3b81ad8.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upload.f3b81ad8.svg; sourceTree = "<group>"; };
-		6AE5A5FE2A57675800ED911D /* inject.36295189.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inject.36295189.js; sourceTree = "<group>"; };
 		6AE5A5FF2A57675800ED911D /* copy.d754243f.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copy.d754243f.svg; sourceTree = "<group>"; };
 		6AE5A6002A57675800ED911D /* asterisk.bab3946d.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = asterisk.bab3946d.svg; sourceTree = "<group>"; };
 		6AE5A6012A57675800ED911D /* background.7451e823.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = background.7451e823.js; sourceTree = "<group>"; };
@@ -273,7 +269,6 @@
 		6AE5A60B2A57675800ED911D /* icon128.plasmo.75675c84.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon128.plasmo.75675c84.png; sourceTree = "<group>"; };
 		6AE5A60C2A57675800ED911D /* externalFile.81fe2508.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = externalFile.81fe2508.svg; sourceTree = "<group>"; };
 		6AE5A60D2A57675800ED911D /* logout.51170824.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logout.51170824.svg; sourceTree = "<group>"; };
-		6AE5A60E2A57675800ED911D /* inject-handler.1edc5496.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "inject-handler.1edc5496.js"; sourceTree = "<group>"; };
 		6AE5A60F2A57675800ED911D /* cross-red.98c34aa0.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cross-red.98c34aa0.svg"; sourceTree = "<group>"; };
 		6AE5A6102A57675800ED911D /* arweave.9ad204c3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arweave.9ad204c3.svg; sourceTree = "<group>"; };
 		6AE5A6112A57675800ED911D /* check-green.bea8932b.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "check-green.bea8932b.svg"; sourceTree = "<group>"; };
@@ -286,9 +281,11 @@
 		6AFF536F2A64B10A00A01649 /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
 		6AFF53722A64B1AE00A01649 /* DotsPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsPagination.swift; sourceTree = "<group>"; };
 		6AFF53752A64B3C700A01649 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		6AFF53782A657B2A00A01649 /* ardrive.622d9ea3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ardrive.622d9ea3.svg; sourceTree = "<group>"; };
 		6AFF537B2A657FD600A01649 /* tour6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tour6.png; sourceTree = "<group>"; };
 		6AFF53812A6583EB00A01649 /* tour7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tour7.png; sourceTree = "<group>"; };
+		6AFF53872A6996CF00A01649 /* mainWorld.06b15cf0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mainWorld.06b15cf0.js; sourceTree = "<group>"; };
+		6AFF53882A6996CF00A01649 /* mainWorldHandler.8f410092.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mainWorldHandler.8f410092.js; sourceTree = "<group>"; };
+		6AFF53892A6996CF00A01649 /* injectedUI.e033f073.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = injectedUI.e033f073.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,7 +470,6 @@
 			children = (
 				6AE5A5F72A57675800ED911D /* activity.32f1dfb6.svg */,
 				6AE5A6032A57675800ED911D /* alert.b97c7696.svg */,
-				6AFF53782A657B2A00A01649 /* ardrive.622d9ea3.svg */,
 				6AE5A6102A57675800ED911D /* arweave.9ad204c3.svg */,
 				6AE5A6002A57675800ED911D /* asterisk.bab3946d.svg */,
 				6AE5A6012A57675800ED911D /* background.7451e823.js */,
@@ -486,11 +482,12 @@
 				6AE5A60A2A57675800ED911D /* externalLink.d56e7a0f.svg */,
 				6AE5A6022A57675800ED911D /* icon16.plasmo.3f939841.png */,
 				6AE5A6082A57675800ED911D /* icon32.plasmo.b3e782d4.png */,
+				6AFF53892A6996CF00A01649 /* injectedUI.e033f073.js */,
+				6AFF53872A6996CF00A01649 /* mainWorld.06b15cf0.js */,
+				6AFF53882A6996CF00A01649 /* mainWorldHandler.8f410092.js */,
 				6AE5A6052A57675800ED911D /* icon48.plasmo.3cd5ceed.png */,
 				6AE5A6062A57675800ED911D /* icon64.plasmo.2d281304.png */,
 				6AE5A60B2A57675800ED911D /* icon128.plasmo.75675c84.png */,
-				6AE5A60E2A57675800ED911D /* inject-handler.1edc5496.js */,
-				6AE5A5FE2A57675800ED911D /* inject.36295189.js */,
 				6AE5A6152A57675800ED911D /* keys.fbddd79e.svg */,
 				6AE5A6142A57675800ED911D /* loading.066129e5.svg */,
 				6AE5A5F92A57675800ED911D /* login.4f5496fa.svg */,
@@ -502,7 +499,6 @@
 				6AE5A5F82A57675800ED911D /* popup.c5bdfb9c.js */,
 				6AE5A5FA2A57675800ED911D /* popup.html */,
 				6AE5A5FC2A57675800ED911D /* refresh.fb631ecc.svg */,
-				6AA8AD792A5F17C500FA4569 /* uLogo.72f87402.svg */,
 				6AE5A5FD2A57675800ED911D /* upload.f3b81ad8.svg */,
 				6AA8AD762A5DE42800FA4569 /* uploadCloud.a893dc1a.svg */,
 				6AE5A6072A57675800ED911D /* warp.b792c4fc.svg */,
@@ -722,23 +718,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AFF538E2A6996CF00A01649 /* injectedUI.e033f073.js in Resources */,
 				6AE5A6392A57675800ED911D /* icon32.plasmo.b3e782d4.png in Resources */,
 				6AE5A6352A57675800ED911D /* icon64.plasmo.2d281304.png in Resources */,
+				6AFF538A2A6996CF00A01649 /* mainWorld.06b15cf0.js in Resources */,
 				6AE5A6372A57675800ED911D /* warp.b792c4fc.svg in Resources */,
 				6AE5A62B2A57675800ED911D /* background.7451e823.js in Resources */,
 				6AE5A6512A57675800ED911D /* loading.066129e5.svg in Resources */,
 				6AE5A63B2A57675800ED911D /* bundlr.28adc8ec.svg in Resources */,
-				6AFF53792A657B2A00A01649 /* ardrive.622d9ea3.svg in Resources */,
 				6AE5A6212A57675800ED911D /* refresh.fb631ecc.svg in Resources */,
 				6AE5A6552A57675800ED911D /* loginSmall.db413c0a.svg in Resources */,
 				6AE5A6432A57675800ED911D /* logout.51170824.svg in Resources */,
 				6AE5A64D2A57675800ED911D /* logo.74f8d066.svg in Resources */,
 				6AE5A6192A57675800ED911D /* popup.c5bdfb9c.js in Resources */,
+				6AFF538C2A6996CF00A01649 /* mainWorldHandler.8f410092.js in Resources */,
 				6AE5A64B2A57675800ED911D /* check-green.bea8932b.svg in Resources */,
 				6AE5A64F2A57675800ED911D /* manifest.json in Resources */,
 				6AE5A6292A57675800ED911D /* asterisk.bab3946d.svg in Resources */,
 				6AE5A61D2A57675800ED911D /* popup.html in Resources */,
-				6AE5A6252A57675800ED911D /* inject.36295189.js in Resources */,
 				6AE5A6232A57675800ED911D /* upload.f3b81ad8.svg in Resources */,
 				6AE5A6172A57675800ED911D /* activity.32f1dfb6.svg in Resources */,
 				6AE5A6492A57675800ED911D /* arweave.9ad204c3.svg in Resources */,
@@ -747,8 +744,6 @@
 				6AA8AD772A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */,
 				6AE5A62F2A57675800ED911D /* alert.b97c7696.svg in Resources */,
 				6AE5A6312A57675800ED911D /* popup.596544fc.css in Resources */,
-				6AA8AD7A2A5F17C500FA4569 /* uLogo.72f87402.svg in Resources */,
-				6AE5A6452A57675800ED911D /* inject-handler.1edc5496.js in Resources */,
 				6AE5A6412A57675800ED911D /* externalFile.81fe2508.svg in Resources */,
 				6AE5A62D2A57675800ED911D /* icon16.plasmo.3f939841.png in Resources */,
 				6AE5A63F2A57675800ED911D /* icon128.plasmo.75675c84.png in Resources */,
@@ -764,23 +759,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AFF538F2A6996CF00A01649 /* injectedUI.e033f073.js in Resources */,
 				6AE5A63A2A57675800ED911D /* icon32.plasmo.b3e782d4.png in Resources */,
 				6AE5A6362A57675800ED911D /* icon64.plasmo.2d281304.png in Resources */,
+				6AFF538B2A6996CF00A01649 /* mainWorld.06b15cf0.js in Resources */,
 				6AE5A6382A57675800ED911D /* warp.b792c4fc.svg in Resources */,
 				6AE5A62C2A57675800ED911D /* background.7451e823.js in Resources */,
 				6AE5A6522A57675800ED911D /* loading.066129e5.svg in Resources */,
 				6AE5A63C2A57675800ED911D /* bundlr.28adc8ec.svg in Resources */,
-				6AFF537A2A657B2A00A01649 /* ardrive.622d9ea3.svg in Resources */,
 				6AE5A6222A57675800ED911D /* refresh.fb631ecc.svg in Resources */,
 				6AE5A6562A57675800ED911D /* loginSmall.db413c0a.svg in Resources */,
 				6AE5A6442A57675800ED911D /* logout.51170824.svg in Resources */,
 				6AE5A64E2A57675800ED911D /* logo.74f8d066.svg in Resources */,
 				6AE5A61A2A57675800ED911D /* popup.c5bdfb9c.js in Resources */,
+				6AFF538D2A6996CF00A01649 /* mainWorldHandler.8f410092.js in Resources */,
 				6AE5A64C2A57675800ED911D /* check-green.bea8932b.svg in Resources */,
 				6AE5A6502A57675800ED911D /* manifest.json in Resources */,
 				6AE5A62A2A57675800ED911D /* asterisk.bab3946d.svg in Resources */,
 				6AE5A61E2A57675800ED911D /* popup.html in Resources */,
-				6AE5A6262A57675800ED911D /* inject.36295189.js in Resources */,
 				6AE5A6242A57675800ED911D /* upload.f3b81ad8.svg in Resources */,
 				6AE5A6182A57675800ED911D /* activity.32f1dfb6.svg in Resources */,
 				6AE5A64A2A57675800ED911D /* arweave.9ad204c3.svg in Resources */,
@@ -789,8 +785,6 @@
 				6AA8AD782A5DE42800FA4569 /* uploadCloud.a893dc1a.svg in Resources */,
 				6AE5A6302A57675800ED911D /* alert.b97c7696.svg in Resources */,
 				6AE5A6322A57675800ED911D /* popup.596544fc.css in Resources */,
-				6AA8AD7B2A5F17C500FA4569 /* uLogo.72f87402.svg in Resources */,
-				6AE5A6462A57675800ED911D /* inject-handler.1edc5496.js in Resources */,
 				6AE5A6422A57675800ED911D /* externalFile.81fe2508.svg in Resources */,
 				6AE5A62E2A57675800ED911D /* icon16.plasmo.3f939841.png in Resources */,
 				6AE5A6402A57675800ED911D /* icon128.plasmo.75675c84.png in Resources */,

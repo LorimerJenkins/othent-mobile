@@ -170,7 +170,7 @@ struct ImageView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
+struct GuidedTourView_Previews: PreviewProvider {
     static var previews: some View {
         GuidedTourView(dismissAction: {}, homeURL: "https://oth-upload.vercel.app")
     }

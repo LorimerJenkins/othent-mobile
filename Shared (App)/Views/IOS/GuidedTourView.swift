@@ -15,6 +15,7 @@ let backgroundImages: [String] = [
     "bgCircles",
     "bgDots",
     "bgDots",
+    "bgDots",
     "bgCircles",
     "bgDots",
     "bgCircles",
@@ -23,7 +24,9 @@ let backgroundImages: [String] = [
 let titles: [String] = [
     "Experience Arweave on mobile with Othent",
     "Get Started",
-    "Get Started","Jump In",
+    "Get Started",
+    "Get Started",
+    "Jump In",
     "Get Started",
     "Manage with ease",
     "Upload files"
@@ -32,10 +35,11 @@ let subtitles: [String] = [
     "Sign in to the Permaweb on the go, all through an extension",
     "Enable Othent Safari extension",
     "Review permissions",
+    "Othent uses a popup window to show the sign in page",
     "Interact with your favorite Arweave dApps",
     "Sign up to Othent",
-    "View recent transactions and an overview of your account, through the easy-to-use extension",
-    "Easily upload files in 2 steps from the extension and keep them forever in the Permaweb.",
+    "View recent activity and an overview of your account, in the easy-to-use extension",
+    "Easily upload files from the extension and keep them forever in the Permaweb.",
 ]
 
 struct GuidedTourView: View {
@@ -141,16 +145,16 @@ struct ImageView: View {
                 }
                 Spacer()
 
-            } else if currentPage == 3 {
+            } else if currentPage == 4 {
                 VStack{
                     HStack{
                         ForEach(1..<4) { row in
-                            Image("tour4"+row.formatted())
+                            Image("tour"+(currentPage+1).formatted()+row.formatted())
                                 .padding(.horizontal, 10)
                                 .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
                         }
                     }
-                    Image("tour4")
+                    Image("tour"+(currentPage+1).formatted())
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fit)
                                             .padding(10)

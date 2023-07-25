@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>SFSafariWebExtensionConverterVersion</key>
 	<string>14.3</string>
 	<key>UIAppFonts</key>
@@ -40,8 +42,6 @@
 			<string>firstLaunch</string>
 			<key>UTTypeTagSpecification</key>
 			<dict/>
-			<key>firstLaunch</key>
-			<true/>
 		</dict>
 		<dict/>
 	</array>

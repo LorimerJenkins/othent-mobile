@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class GuidedTourVC: UIViewController {
+class GuidedTourVC: PlatformViewController {
     var homeURL: String = "https://oth-upload.vercel.app"
 
     func dismissTour() {
@@ -18,14 +18,14 @@ class GuidedTourVC: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
-    
+
     func setupViews() {
-        
+
         let gtView = GuidedTourView(dismissAction: dismissTour, homeURL: homeURL)
         let vc = UIHostingController(rootView: gtView)
         let swiftuiView = vc.view!
         swiftuiView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         addChild(vc)
         view.addSubview(swiftuiView)
 

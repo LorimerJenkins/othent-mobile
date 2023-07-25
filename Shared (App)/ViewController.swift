@@ -21,7 +21,7 @@ let extensionBundleIdentifier = "com.communitylabs.Othent.Extension"
 
 class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
     
-    @State var guidedTourCompleted = UserDefaults().bool(forKey: "guidedTourCompleted")
+    var guidedTourCompleted = UserDefaults().bool(forKey: "guidedTourCompleted")
     @IBOutlet var webView: WKWebView!
     
     func startGuidedTour() {
@@ -56,7 +56,6 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         self.webView.scrollView.isScrollEnabled = false
         
         setupIOSView()
-
 #endif
         
         self.webView.configuration.userContentController.add(self, name: "controller")
@@ -69,13 +68,13 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         webView.evaluateJavaScript("show('ios')")
 #elseif os(macOS)
         webView.evaluateJavaScript("show('mac')")
-        
+
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { (state, error) in
             guard let state = state, error == nil else {
                 // Insert code to inform the user that something went wrong.
                 return
             }
-            
+
             DispatchQueue.main.async {
                 if #available(macOS 13, *) {
                     webView.evaluateJavaScript("show('mac', \(state.isEnabled), true)")

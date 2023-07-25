@@ -12,18 +12,23 @@ struct Header: View {
     let dismissAction: () -> Void
 
     var body: some View {
-        HStack {
-            Spacer()
-            Spacer()
-            Image("logo")
-                .padding(.leading, 10)
-            Spacer()
-            Button(action: dismissAction) {
-                HStack {
-                    Text("Skip")
-                    Label("", systemImage: "arrow.right")
-                }
+        ZStack{
+            HStack {
+                Spacer()
             }
+            HStack {
+                Image("logo")
+            }
+            HStack {
+                Spacer()
+                Button(action: dismissAction) {
+                    HStack {
+                        Text("Skip")
+                        Label("", systemImage: "arrow.right")
+                    }
+                }.frame(alignment: .trailing)
+            }
+
         }
         .foregroundColor(.accentColor)
         .font(.custom("DMSans-Bold", size: 18))

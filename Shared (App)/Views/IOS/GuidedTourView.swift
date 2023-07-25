@@ -71,6 +71,7 @@ struct GuidedTourView: View {
                 Title(text: titles[currentPage])
                 SubTitle(text: subtitles[currentPage])
                 ImageView(currentPage: currentPage)
+                    .frame(maxWidth: 500)
                 DotsPagination(total: titles.count, current: currentPage, action: setCurrentPage)
                 if self.currentPage < titles.count - 1 {
                     ActionButton(action:nextView, content: {
@@ -85,6 +86,7 @@ struct GuidedTourView: View {
                     }, content: {Text("Open Safari")})
                 }
             }
+//            .frame(maxWidth: 600, maxHeight: 1000, alignment: .center)
             .font(Font.custom("DMSans-regular", size: 18))
             .background(
                 VStack {
@@ -94,7 +96,7 @@ struct GuidedTourView: View {
                         .aspectRatio(contentMode: .fit)
                 }
             )
-            .frame(height: metrics.size.height)
+            .frame(height: metrics.size.height, alignment: .center)
             .gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
             .onEnded { value in
                 let horizontalAmount = value.translation.width

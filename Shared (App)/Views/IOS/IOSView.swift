@@ -58,7 +58,7 @@ struct IOSView: View {
                 Spacer()
                 ActionButton(action: openGuidedTourAction, content: {Text("Guided Tour")})
             }
-        }
+        }.preferredColorScheme(.light)
     }
 }
 

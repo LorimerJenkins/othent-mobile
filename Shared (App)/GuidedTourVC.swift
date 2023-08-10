@@ -16,6 +16,7 @@ class GuidedTourVC: PlatformViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         setupViews()
     }
 

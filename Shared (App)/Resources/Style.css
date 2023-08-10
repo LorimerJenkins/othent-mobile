@@ -5,12 +5,17 @@
 }
 
 :root {
-    color-scheme: light dark;
+/*    color-scheme: light dark;*/
+    color-scheme: light;
     --spacing: 20px;
+    background: #fff;
+
 }
 
 html {
     height: 100%;
+    background: #fff;
+
 }
 
 body {
@@ -25,6 +30,7 @@ body {
 
     font: -apple-system-short-body;
     text-align: center;
+    background: #fff;
 }
 
 body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {

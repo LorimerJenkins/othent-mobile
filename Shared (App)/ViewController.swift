@@ -49,7 +49,7 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        overrideUserInterfaceStyle = .light
         self.webView.navigationDelegate = self
         
 #if os(iOS)

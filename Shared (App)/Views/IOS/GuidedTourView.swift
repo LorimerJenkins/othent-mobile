@@ -8,169 +8,60 @@
 
 import SwiftUI
 
-let whiteArrow: String = "arrow-narrow-right"
-let blueArrow: String = "arrow-narrow-right-blue"
-
-let backgroundImages: [String] = [
-    "bgCircles",
-    "bgDots",
-    "bgDots",
-    "bgDots",
-    "bgCircles",
-    "bgDots",
-    "bgCircles",
-    "bgCircles",
-]
-let titles: [String] = [
-    "Experience Arweave on mobile with Othent",
-    "Get Started",
-    "Get Started",
-    "Get Started",
-    "Jump In",
-    "Get Started",
-    "Manage with ease",
-    "Upload files"
-]
-let subtitles: [String] = [
-    "Sign in to the Permaweb on the go, all through an extension",
-    "Enable Othent Safari extension",
-    "Review permissions",
-    "Othent uses a popup window to show the sign in page",
-    "Interact with your favorite Arweave dApps",
-    "Sign up to Othent",
-    "View recent activity and an overview of your account, in the easy-to-use extension",
-    "Easily upload files from the extension and keep them forever in the Permaweb.",
-]
-
 struct GuidedTourView: View {
     let dismissAction: () -> Void
     let homeURL: String
-    
-    @State private var currentPage = 0
-    
-    func setCurrentPage(page: Int) {
-        self.currentPage = page
-    }
-    
-    func nextView() {
-        self.currentPage = min(self.currentPage + 1, titles.count - 1)
-    }
 
-    func prevView() {
-        self.currentPage = max(self.currentPage - 1, 0)
-    }
+    @State private var currentScreen = 0
+    @State private var offsetX: CGFloat = 0
+    private let screenSize = UIScreen.main.bounds.size
+    
+    private let SCREEN_COUNT = 8
 
-    var body: some View {
-        @Environment(\.openURL) var openURL
-        
-        GeometryReader { metrics in
-            VStack {
-                Header(dismissAction: dismissAction)
-                    .padding(.top, 20)
-                    .padding(.horizontal, 10)
-                Title(text: titles[currentPage])
-                SubTitle(text: subtitles[currentPage])
-                ImageView(currentPage: currentPage)
-                    .frame(maxWidth: 500)
-                DotsPagination(total: titles.count, current: currentPage, action: setCurrentPage)
-                if self.currentPage < titles.count - 1 {
-                    ActionButton(action:nextView, content: {
-                        Text("Continue")
-                        Image(systemName: "arrow.right")
-                    })
-                } else {
-                    ActionButton(action:{
-                        UserDefaults().set(true, forKey: "guidedTourCompleted")
-                        dismissAction()
-                        openURL(URL(string: homeURL)!)
-                    }, content: {Text("Open Safari")})
+    func setCurrentScreen(page: Int) {
+        if (page >= 0 && page < SCREEN_COUNT) {
+            withAnimation(.easeInOut(duration: 0.5)) {
+                self.currentScreen = page
+                    offsetX = -CGFloat(page) * screenSize.width
                 }
-            }
-//            .frame(maxWidth: 600, maxHeight: 1000, alignment: .center)
-            .font(Font.custom("DMSans-regular", size: 18))
-            .background(
-                VStack {
-                    Spacer()
-                    Image(backgroundImages[currentPage])
-                        .resizable(resizingMode: .stretch)
-                        .aspectRatio(contentMode: .fit)
-                }
-            )
-            .frame(height: metrics.size.height, alignment: .center)
-            .gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
-            .onEnded { value in
-                let horizontalAmount = value.translation.width
-                let verticalAmount = value.translation.height
-                
-                if abs(horizontalAmount) > abs(verticalAmount) {
-                    if horizontalAmount < 0 {
-                        nextView()
-                    } else {
-                        prevView()
-                    }
-                } else {
-                    if !(verticalAmount < 0) {
-                        dismissAction()
-                    }
-                }
-            })
         }
     }
-}
-
-struct ImageView: View {
-    let currentPage: Int
-    let pageOneTexts: [[String]] = [["Simple","Setup once, use forever."],["Secure","Personal data encrypted end-to-end."],["Seamless","Log in with a single click."]]
     
+    func createGuidedTourScreen(screenNum: Int) -> GuidedTourScreen {
+        return GuidedTourScreen(dismissAction: dismissAction, homeURL: homeURL, currentScreen: screenNum, setCurrentScreen: setCurrentScreen)
+    }
+
     var body: some View {
         VStack {
-            if currentPage == 0 {
-                Spacer()
-                HStack{
-                    LazyVGrid(columns: [GridItem(.flexible(minimum:32,maximum:40), alignment: .trailing), GridItem(.flexible(minimum:50,maximum:155), alignment: .leading)], spacing: 20) {
-                        ForEach(1..<4) { row in
-                            Image("tour1"+row.formatted())
-                                .padding(.trailing, 40)
-                            VStack(alignment: .leading) {
-                                Text(pageOneTexts[row-1][0])
-                                    .font(.custom("DMSans-Regular", size: 24))
-                                    .multilineTextAlignment(.leading)
-                                Text(pageOneTexts[row-1][1])
-                                    .font(.custom("DMSans-Regular", size: 14))
-                                    .multilineTextAlignment(.leading)
-                            }
-                            .multilineTextAlignment(.leading)
-                        }
-                    }
-                    .frame(maxWidth: 250)
-                    .padding(.leading, 50)
+//            Text(self.currentScreen.description)
+            // Swipeable content
+            HStack(spacing: 0) {
+                ForEach(0..<SCREEN_COUNT, id: \.self) { index in
+                    GuidedTourScreenView(screen: createGuidedTourScreen(screenNum: index))
+                        .frame(width: screenSize.width)
                 }
-                Spacer()
-
-            } else if currentPage == 4 {
-                VStack{
-                    HStack{
-                        ForEach(1..<4) { row in
-                            Image("tour"+(currentPage+1).formatted()+row.formatted())
-                                .padding(.horizontal, 10)
-                                .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
-                        }
-                    }
-                    Image("tour"+(currentPage+1).formatted())
-                        .resizable(resizingMode: .stretch)
-                        .aspectRatio(contentMode: .fit)
-                                            .padding(10)
-                        .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
-                }
-            } else {
-                Image("tour"+(currentPage+1).formatted())
-                    .resizable(resizingMode: .stretch)
-                    .scaledToFit()
-                    .padding(.horizontal, 20)
-                    .aspectRatio(contentMode: .fit)
-                    .shadow(color: Color(CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)), radius: 12, x: 2, y: 3)
             }
-            Spacer()
+            .frame(width: screenSize.width, alignment: .leading)
+            .offset(x: offsetX)
+            .gesture(
+                DragGesture(minimumDistance: 20, coordinateSpace: .global)
+                    .onEnded { value in
+                        let horizontalAmount = value.translation.width
+                        let verticalAmount = value.translation.height
+                        
+                        if abs(horizontalAmount) > abs(verticalAmount) {
+                            if horizontalAmount < 0 {
+                                setCurrentScreen(page: currentScreen + 1)
+                            } else {
+                                setCurrentScreen(page: currentScreen - 1)
+                            }
+                        } else {
+                            if !(verticalAmount < 0) {
+                                dismissAction()
+                            }
+                        }
+                    }
+            )
         }
     }
 }

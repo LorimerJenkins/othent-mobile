@@ -20,8 +20,8 @@ struct DotsPagination: View {
                 Button(action: {action(index)}) {
                     Circle()
                         .foregroundColor(index == current ? .accentColor : .secondary)
-                        .frame(width: 8, height: 8)
-                }.padding(.horizontal, 4)
+                        .frame(width: index == current ? 16 : 12, height: index == current ? 16 : 12)
+                }.padding(.horizontal, index == current ? 6 : 8)
             }
         }.padding(.bottom,5)
     }
@@ -29,6 +29,6 @@ struct DotsPagination: View {
 
 struct DotsPagination_Previews: PreviewProvider {
     static var previews: some View {
-        DotsPagination(total: 6, current: 3, action: {_ in })
+        DotsPagination(total: 8, current: 4, action: {_ in })
     }
 }

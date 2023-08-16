@@ -168,7 +168,7 @@ struct GuidedTourScreen_Previews: PreviewProvider {
             GuidedTourScreen(
                 dismissAction: {},
                 homeURL: "https://oth-upload.vercel.app",
-                currentScreen: 7,
+                currentScreen: 4,
                 setCurrentScreen: {_ in }
             )
         )
